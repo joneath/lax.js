@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Lax.js : Lax.js makes building scrolling reactive UI&#39;s easy (aka parallax)." />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Lax.js</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/joneath/lax.js">View on GitHub</a>
+
+          <h1 id="project_title">Lax.js</h1>
+          <h2 id="project_tagline">Lax.js makes building scrolling reactive UI&#39;s easy (aka parallax).</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/joneath/lax.js/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/joneath/lax.js/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
+<a name="laxjs" class="anchor" href="#laxjs"><span class="octicon octicon-link"></span></a>Lax.js</h1>
+
+<p>Lax.js makes building scrolling reactive UI's easy (aka parallax). Lax works by watching the user's scroll position and calling the defined callback when the element(s) come into view. The callback method is passed the percentage of the user's scroll from the define element as a decimal (.1, .2, .3, ..., .99). This lets you define any sort of transform, top, bottom, color, background-position, etc. as the user scrolls. </p>
+
+<h2>
+<a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h2>
+
+<pre><code>var options = {};
+var lax = new Lax({
+    '.move-up': function(diff, $el, e) {
+        var translate = -(diff * $el.height());
+        $el.css({
+            transform: 'translate3d(0,' + translate + 'px,0)'
+        });
+    },
+    '.move-down': function(diff, $el, e) {
+        var translate = (diff * $el.height());
+        $el.css({
+            transform: 'translate3d(0,' + translate + 'px,0)'
+        });
+    },
+    '.parallax-background': function(diff, $el, e) {
+        var percent = diff * 100;
+        $el.css({
+            background-position: '50% ' + percent + '%'
+        });
+    }
+}, options);
+
+lax.disable(); // removes scroll and resize handlers.
+lax.enable(); // reinstate scroll and resize handlers.
+lax.destroy(); // kill lax
+</code></pre>
+
+<h2>
+<a name="options" class="anchor" href="#options"><span class="octicon octicon-link"></span></a>Options</h2>
+
+<pre><code>{
+  $target: $(window),
+  watchResize: true,
+  resizeDelay: 100
+}
+</code></pre>
+
+<ul>
+<li>$target (default: window) - scrolling target to watch</li>
+<li>watchResize (default: true) - Lax watches when the window is resized to recalculate the elements positions.</li>
+<li>resizeDelay (default: 100ms) - resize event time delay before element positions are recalculated.</li>
+</ul>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Lax.js maintained by <a href="https://github.com/joneath">joneath</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
