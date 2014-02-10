@@ -34,47 +34,47 @@
         <h1>
 <a name="laxjs" class="anchor" href="#laxjs"><span class="octicon octicon-link"></span></a>Lax.js</h1>
 
-<p>Lax.js makes building scrolling reactive UI's easy (aka parallax). Lax works by watching the user's scroll position and calling the defined callback when the element(s) come into view. The callback method is passed the percentage of the user's scroll from the define element as a decimal (.1, .2, .3, ..., .99). This lets you define any sort of transform, top, bottom, color, background-position, etc. as the user scrolls. </p>
+<p>Lax.js makes building scrolling reactive UI's easy (aka parallax). Lax works by watching the user's scroll position and calling the defined callback when the element(s) come into view. The callback method is passed the percentage of the user's scroll from the define element as a decimal (.1, .2, .3, ..., .99). This lets you define any sort of transform, top, bottom, color, background-position, etc. as the user scrolls.</p>
 
 <h2>
 <a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h2>
 
-<pre><code>var options = {};
-var lax = new Lax({
-    '.move-up': function(diff, $el, e) {
-        var translate = -(diff * $el.height());
-        $el.css({
-            transform: 'translate3d(0,' + translate + 'px,0)'
-        });
-    },
-    '.move-down': function(diff, $el, e) {
-        var translate = (diff * $el.height());
-        $el.css({
-            transform: 'translate3d(0,' + translate + 'px,0)'
-        });
-    },
-    '.parallax-background': function(diff, $el, e) {
-        var percent = diff * 100;
-        $el.css({
-            background-position: '50% ' + percent + '%'
-        });
-    }
-}, options);
+<div class="highlight highlight-javascript"><pre><span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{};</span>
+<span class="kd">var</span> <span class="nx">lax</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Lax</span><span class="p">({</span>
+    <span class="s1">'.move-up'</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">diff</span><span class="p">,</span> <span class="nx">$el</span><span class="p">,</span> <span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="nx">translate</span> <span class="o">=</span> <span class="o">-</span><span class="p">(</span><span class="nx">diff</span> <span class="o">*</span> <span class="nx">$el</span><span class="p">.</span><span class="nx">height</span><span class="p">());</span>
+        <span class="nx">$el</span><span class="p">.</span><span class="nx">css</span><span class="p">({</span>
+            <span class="nx">transform</span><span class="o">:</span> <span class="s1">'translate3d(0,'</span> <span class="o">+</span> <span class="nx">translate</span> <span class="o">+</span> <span class="s1">'px,0)'</span>
+        <span class="p">});</span>
+    <span class="p">},</span>
+    <span class="s1">'.move-down'</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">diff</span><span class="p">,</span> <span class="nx">$el</span><span class="p">,</span> <span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="nx">translate</span> <span class="o">=</span> <span class="p">(</span><span class="nx">diff</span> <span class="o">*</span> <span class="nx">$el</span><span class="p">.</span><span class="nx">height</span><span class="p">());</span>
+        <span class="nx">$el</span><span class="p">.</span><span class="nx">css</span><span class="p">({</span>
+            <span class="nx">transform</span><span class="o">:</span> <span class="s1">'translate3d(0,'</span> <span class="o">+</span> <span class="nx">translate</span> <span class="o">+</span> <span class="s1">'px,0)'</span>
+        <span class="p">});</span>
+    <span class="p">},</span>
+    <span class="s1">'.parallax-background'</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">diff</span><span class="p">,</span> <span class="nx">$el</span><span class="p">,</span> <span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="nx">percent</span> <span class="o">=</span> <span class="nx">diff</span> <span class="o">*</span> <span class="mi">100</span><span class="p">;</span>
+        <span class="nx">$el</span><span class="p">.</span><span class="nx">css</span><span class="p">({</span>
+            <span class="nx">background</span><span class="o">-</span><span class="nx">position</span><span class="o">:</span> <span class="s1">'50% '</span> <span class="o">+</span> <span class="nx">percent</span> <span class="o">+</span> <span class="s1">'%'</span>
+        <span class="p">});</span>
+    <span class="p">}</span>
+<span class="p">},</span> <span class="nx">options</span><span class="p">);</span>
 
-lax.disable(); // removes scroll and resize handlers.
-lax.enable(); // reinstate scroll and resize handlers.
-lax.destroy(); // kill lax
-</code></pre>
+<span class="nx">lax</span><span class="p">.</span><span class="nx">disable</span><span class="p">();</span> <span class="c1">// removes scroll and resize handlers.</span>
+<span class="nx">lax</span><span class="p">.</span><span class="nx">enable</span><span class="p">();</span> <span class="c1">// reinstate scroll and resize handlers.</span>
+<span class="nx">lax</span><span class="p">.</span><span class="nx">destroy</span><span class="p">();</span> <span class="c1">// kill lax</span>
+</pre></div>
 
 <h2>
 <a name="options" class="anchor" href="#options"><span class="octicon octicon-link"></span></a>Options</h2>
 
-<pre><code>{
-  $target: $(window),
-  watchResize: true,
-  resizeDelay: 100
-}
-</code></pre>
+<div class="highlight highlight-javascript"><pre><span class="p">{</span>
+  <span class="nx">$target</span><span class="o">:</span> <span class="nx">$</span><span class="p">(</span><span class="nb">window</span><span class="p">),</span>
+  <span class="nx">watchResize</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="nx">resizeDelay</span><span class="o">:</span> <span class="mi">100</span>
+<span class="p">}</span>
+</pre></div>
 
 <ul>
 <li>$target (default: window) - scrolling target to watch</li>
