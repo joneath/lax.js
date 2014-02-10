@@ -7,7 +7,6 @@
       enabled: true,
 
       enable: function() {
-        this.enabled = true;
         this.boundOnScroll = this.onScroll.bind(this);
         options.$target.on('scroll', this.boundOnScroll);
 
@@ -19,7 +18,6 @@
       },
 
       disable: function() {
-        this.enabled = false;
         options.$target.off('scroll', this.boundOnScroll);
 
         if (options.watchResize) {
@@ -28,12 +26,8 @@
 
       },
 
-      add: function(name, fn) {
-
-      },
-
-      remove: function(name) {
-
+      destroy: function() {
+        this.disable();
       },
 
       update: function() {
@@ -136,55 +130,3 @@
   }
   window.Lax = Lax;
 }( ));
-
-var lax = new Lax({
-  '.left': function(diff, $target, e) {
-    var translate = -(diff * $target.width());
-    $target.css({
-      transform: 'translate3d(' + translate+ 'px,0,0)'
-    });
-  },
-  '.right': function(diff, $target, e) {
-    var translate = (diff * $target.width());
-    $target.css({
-      transform: 'translate3d(' + translate + 'px,0,0)'
-    });
-  },
-  '.up': function(diff, $target, e) {
-    var translate = -(diff * $target.height());
-    $target.css({
-      transform: 'translate3d(0,' + translate + 'px,0)'
-    });
-  },
-  '.down': function(diff, $target, e) {
-    var translate = (diff * $target.height());
-    $target.css({
-      transform: 'translate3d(0,' + translate + 'px,0)'
-    });
-  },
-  '.enlarge': function(diff, $target, e) {
-    var scale = 1 + (2 * diff);
-    $target.css({
-      transform: 'scale(' + scale + ')',
-      'border-radius': (diff * 100) + '%'
-    });
-  },
-  '.shrink': function(diff, $target, e) {
-    var scale = 1 - (2 * diff);
-    $target.css({
-      transform: 'scale(' + scale + ')',
-      opacity: scale
-    });
-  },
-});
-
-// lax.add('.bar-foo', function() {
-
-// });
-// lax.add({
-//   '.foo-bar': function() {
-
-//   }
-// });
-// lax.remove('.bar-foo');
-// lax.remove(['.bar-foo', 'foo-bar']);
