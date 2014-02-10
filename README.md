@@ -1,5 +1,5 @@
 #Lax.js
-Lax.js makes building scrolling reactive UI's easy (aka parallax). Lax works by watching the user's scroll position and calling the defined callback when the element(s) come into view. The callback method is passed the percentage of the user's scroll from the define element as a decimal (.1, .2, .3, ..., .99). This lets you define any sort of transform, top, bottom, color, background-position, etc. as the user scrolls.
+Lax.js makes building scroll reactive UI's easy (aka parallax). Lax works by watching the user's scroll position and calling the defined callback when the element(s) come into view. The callback method is passed the percentage of the user's scroll from the define element as a decimal (.1, .2, .3, ..., .99). This lets you define any sort of transform, top, bottom, color, background-position, etc. as the user scrolls.
 
 ##Usage
 Pass the Lax constructor an object literal of jQuery selectors and callback functions to be called when the elements are visible in the user's viewport. The callback function is called with the scroll differential percentage from the current element, the current jQuery element, and the scroll event.
