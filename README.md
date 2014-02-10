@@ -3,7 +3,7 @@ Lax.js makes building scrolling reactive UI's easy (aka parallax). Lax works by 
 
 ##Usage
 Pass the Lax constructor an object literal of jQuery selectors and callback functions to be called when the elements are visible in the user's viewport. The callback function is called with the scroll differential percentage from the current element, the current jQuery element, and the scroll event.
- 
+
 ```javascript
 var options = {};
 var lax = new Lax({
@@ -36,11 +36,8 @@ lax.destroy(); // kill lax
 ##Options
 ```javascript
 {
-  $target: $(window),
-  watchResize: true,
-  resizeDelay: 100
+  $target: $(window), // scrolling target to watch
+  watchResize: true, // Lax watches when the window is resized to recalculate the elements positions.
+  resizeDelay: 100 // resize event time delay before element positions are recalculated.
 }
 ```
-* $target (default: window) - scrolling target to watch
-* watchResize (default: true) - Lax watches when the window is resized to recalculate the elements positions.
-* resizeDelay (default: 100ms) - resize event time delay before element positions are recalculated.
