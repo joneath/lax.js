@@ -51,7 +51,6 @@
         elsPos.sort(function(a,b) {
           return a.top - b.top;
         });
-        console.log('update', els, elsPos);
       },
 
       onResize: (function() {
