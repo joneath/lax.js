@@ -23,7 +23,6 @@
         if (options.watchResize) {
           $(window).off('resize', this.boundOnResize);
         }
-
       },
 
       destroy: function() {
